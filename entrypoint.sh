@@ -16,7 +16,7 @@ if [ -z "$SSH_PORT" ]; then
   SSH_PORT=22
 fi
 
-if [ -z "$SSH_JUMP_HOST" ]; then
+if [ ! -z "$SSH_JUMP_HOST" ]; then
     if [ -z "$SSH_JUMP_PUBLIC_KEY" ]; then
         echo "Input ssh_jump_public_key is required!"
         exit 1
@@ -41,7 +41,7 @@ if [ -z "$DOCKER_ARGS" ]; then
   DOCKER_ARGS="-d --remove-orphans --build"
 fi
 
-if [ -z "$DOCKER_USE_STACK" ]; then
+if [ "$DOCKER_USE_STACK" = "true" ]; then
   DOCKER_USE_STACK=false
 else
   if [ -z "$DOCKER_COMPOSE_PREFIX" ]; then
