@@ -129,6 +129,7 @@ $remote_registry_login
 
 log 'Launching docker compose... \"$remote_docker_exec\"';
 cd \"$remote_path\";
+$DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull;
 $DOCKER_ENV $remote_docker_exec"
 
 ssh_jump=""
