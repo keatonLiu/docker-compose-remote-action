@@ -17,6 +17,7 @@ if [ -z "$SSH_PORT" ]; then
 fi
 
 if [ -n "$SSH_JUMP_HOST" ]; then
+    echo "ssh_jump_host is provided: $SSH_JUMP_HOST"
     if [ -z "$SSH_JUMP_PUBLIC_KEY" ]; then
         echo "Input ssh_jump_public_key is required!"
         exit 1
