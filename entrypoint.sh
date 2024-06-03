@@ -2,12 +2,12 @@
 set -eu
 
 # check if required parameters provided
-if [ -z "$SSH_USER" ]; then
+if [ -z "$SSH_HOST" ]; then
     echo "Input ssh_host is required!"
     exit 1
 fi
 
-if [ -z "$SSH_HOST" ]; then
+if [ -z "$SSH_USER" ]; then
     echo "Input ssh_user is required!"
     exit 1
 fi
@@ -136,7 +136,7 @@ if [ -n "$SSH_JUMP_HOST" ]; then
   ssh_jump="-J $SSH_USER@$SSH_JUMP_HOST"
 fi
 
-echo ">> [local] Connecting to remote host."
+echo ">> [local] Connecting to remote host. $SSH_HOST"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
   "$ssh_jump" "$SSH_USER@$SSH_HOST" -p "$SSH_PORT" \
   "$remote_command" \
