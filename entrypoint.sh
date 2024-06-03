@@ -42,8 +42,6 @@ if [ -z "$DOCKER_ARGS" ]; then
 fi
 
 if [ "$DOCKER_USE_STACK" = "true" ]; then
-  DOCKER_USE_STACK=false
-else
   if [ -z "$DOCKER_COMPOSE_PREFIX" ]; then
     echo "Input docker_compose_prefix is required!"
     exit 1
