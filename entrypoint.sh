@@ -133,8 +133,8 @@ $remote_registry_login
 log 'Launching docker compose... \"$remote_docker_exec\"';
 cd \"$remote_path\";
 $DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull;
-OUTPUT=$(eval \"$remote_docker_exec\" 2>&1)
-echo ${OUTPUT};
+OUTPUT=$(eval $remote_docker_exec 2>&1)
+echo $OUTPUT;
 if [[ $OUTPUT == *\"Error response from daemon: Conflict.\"* ]]; then
   echo 'Failed to do compose up, rm containers and try again.'
   $DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" rm -sf
