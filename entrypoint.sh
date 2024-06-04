@@ -134,11 +134,6 @@ log 'Launching docker compose... \"$remote_docker_exec\"';
 cd \"$remote_path\";
 $DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull;
 $DOCKER_ENV $remote_docker_exec;
-if [ \$? -ne 0 ]; then
-  echo 'Failed to do compose up, rm containers and try again.'
-  $DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" rm -sf
-  $DOCKER_ENV ${remote_docker_exec};
-fi
 "
 
 ssh_jump=""
