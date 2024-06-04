@@ -134,7 +134,7 @@ log 'Launching docker compose... \"$remote_docker_exec\"';
 cd \"$remote_path\";
 $DOCKER_ENV docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull;
 $DOCKER_ENV $remote_docker_exec;
-$DOCKER_ENV docker image prune;
+$DOCKER_ENV docker image prune -f;
 "
 
 ssh_jump=""
