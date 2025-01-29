@@ -121,7 +121,7 @@ fi
 remote_command="set -e;
 log() { echo '>> [remote]' \$@ ; };
 
-log 'Creating workspace directory...';
+log "Creating workspace directory... \$remote_path";
 mkdir -p \"$remote_path\";
 
 log 'Unpacking workspace...';
